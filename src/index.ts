@@ -15,9 +15,10 @@ renderer.setAnimationLoop(() => {
 })
 
 onPlayerJoin((state) => {
-    console.log(`Player joined: {state}`)
+    console.log("Player joined");
+    console.log(state);
 })
 
-await insertCoin()
+insertCoin()
 
 console.log("Game started!")
