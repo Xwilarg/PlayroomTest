@@ -14,7 +14,7 @@
         "vite": "^4.3.9"
     },
     "dependencies": {
-        "playroomkit": "^0.0.23",
+        "playroomkit": "^0.0.28",
         "three": "^0.154.0"
     }
 }
