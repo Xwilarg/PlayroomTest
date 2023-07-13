@@ -1,11 +1,15 @@
-import { PerspectiveCamera, Scene, WebGLRenderer, DirectionalLight, Camera, Object3D, Vector3 } from "three"
+import { PerspectiveCamera, Scene, WebGLRenderer, DirectionalLight, Camera, Object3D, Vector3, Color } from "three"
 // @ts-ignore
 import { onPlayerJoin, insertCoin, myPlayer } from "playroomkit"
+
 import { GLTF, GLTFLoader } from "three/addons/loaders/GLTFLoader.js"
 import { Mover } from "./mover"
+import { createPlane } from "./util"
 
 // Set up scene and renderer
 const scene = new Scene()
+
+scene.background = new Color(49 / 255, 77 / 255, 121 / 255)
 
 const renderer = new WebGLRenderer()
 renderer.setSize(window.innerWidth, window.innerHeight)
@@ -17,6 +21,9 @@ const light = new DirectionalLight(0xffffff)
 
 light.position.set(0, 10, 10)
 scene.add(light)
+
+// Add cute floor
+createPlane("zirk.png", scene)
 
 // Since Playroom has no bindings
 interface DummyState
@@ -78,9 +85,10 @@ class Game extends Mover {
     // Creates the local player
     createLocalPlayer() {
         this.addPlayer(null, (player) => {
-            this.camera.position.set(0, 1.5, 5)
+            this.camera.position.set(0, 3.5, 5)
+            this.camera.rotateX(-0.5)
 
-            //layer.attach(this.camera)
+            player.attach(this.camera)
         })
     }
 
