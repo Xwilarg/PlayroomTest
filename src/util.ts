@@ -1,4 +1,4 @@
-import { Mesh, MeshBasicMaterial, PlaneGeometry, Scene, Texture, TextureLoader } from "three";
+import { Mesh, MeshBasicMaterial, PlaneGeometry, Scene, Texture, TextureLoader } from "three"
 
 function createPlane(texture: string, scene: Scene) {
     const loader = new TextureLoader()
